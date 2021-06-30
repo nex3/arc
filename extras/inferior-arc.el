@@ -1,5 +1,8 @@
 ;;; inferior-arc.el --- Arc process in a buffer. Adapted from cmuscheme.el
 
+;; Version: 0.1
+;; Url: https://github.com/arclanguage/anarki
+
 ;; Copyright (C) 1988, 1994, 1997, 2001, 2002, 2003, 2004,
 ;;   2005, 2006, 2007, 2008, 2021 Free Software Foundation, Inc.
 
@@ -125,8 +128,7 @@
   (define-key map [send-region]
     '("Evaluate Region" . arc-send-region))
   (define-key map [send-sexp]
-    '("Evaluate Last S-expression" . arc-send-last-sexp))
-  )
+    '("Evaluate Last S-expression" . arc-send-last-sexp)))
 
 (defvar arc-buffer)
 

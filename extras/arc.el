@@ -1,5 +1,8 @@
 ;;; arc.el --- Arc editing mode
 
+;; Version: 0.1
+;; Url: https://github.com/arclanguage/anarki
+
 ;; Copyright (C) 1986, 1987, 1988, 1997, 1998, 2001, 2002, 2003, 2004, 2005,
 ;;   2006, 2007, 2008, 2021  Free Software Foundation, Inc.
 
@@ -26,6 +29,8 @@
 ;; along with GNU Emacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
+
+;; Package-Requires: ((emacs "24.3"))
 
 ;;; Commentary:
 
@@ -244,8 +249,7 @@ See `run-hooks'."
       '(2 (cond ((match-beginning 2) font-lock-function-name-face)
                 ((match-beginning 5) font-lock-variable-name-face)
                 (t font-lock-type-face))
-          nil t))
-     ))
+          nil t))))
   "Subdued expressions to highlight in Arc modes.")
 
 (defconst arc-font-lock-keywords-2
@@ -281,10 +285,10 @@ See `run-hooks'."
                "accum" "after" "atomic" "catch" "errsafe" "point" "thread"
                "w/table" "w/uniq"
                ; misc
-               "do" "do1" "get"
-               ) t)
-        "\\>") 1)
-      )))
+               "do" "do1" "get")
+             t)
+        "\\>")
+       1))))
   "Gaudy expressions to highlight in Arc modes.")
 
 (defvar arc-font-lock-keywords arc-font-lock-keywords-1
@@ -412,7 +416,7 @@ rigidly along with this one."
 ;; like def if the first form is placed on the next line, otherwise
 ;; it is indented like any other form (i.e. forms line up under first).
 
-(eval-when-compile (require 'cl-macs))
+(eval-when-compile (require 'cl-lib))
 
 (let ((arc-indent-function-list
        ;; format is ((LEVEL . SYMS) ...)
